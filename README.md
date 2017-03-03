@@ -19,15 +19,9 @@ Launch Azure Key Vault Password Repository
 Use Get-Help Invoke-AzureKeyVaultPasswordRepository -Full to access the help file for this function.
 
 ####Aliases
-ipr
-Start-PasswordRepo
-
-Use Get-Help New-AzureTableEntity -Full to access the help file for this function.
+* ipr
+* Start-PasswordRepo
 
 ##Additional information:
-
 ###PowerShell Gallery:
-https://www.powershellgallery.com/packages/AzureTableEntity
-
-###Sample code on GitHub Gist:
-https://gist.github.com/tyconsulting/1ff706181d8e476528c86b8f7ac8af23
+https://www.powershellgallery.com/packages/AzureKeyVaultPasswordRepo
