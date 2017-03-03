@@ -729,7 +729,6 @@ Function Invoke-AzureKeyVaultPasswordRepository
     Write-Host -Object $TopMenuTitleLine2 -ForegroundColor Cyan
     Write-Host -Object "  Selected Key Vault: '$Global:KeyVaultName'" -ForegroundColor Cyan
     Write-Host -Object "Select what you'd like to do:" -ForegroundColor DarkGray
-    Write-Host -Object '0. Exit' -ForegroundColor DarkGray
     Write-Host -Object '1. Create new credential' -ForegroundColor Yellow
     Write-Host -Object '2. Choose existing credentials from the list' -ForegroundColor Yellow
     Write-Host -Object '3. Search existing credentials' -ForegroundColor Yellow
@@ -737,12 +736,13 @@ Function Invoke-AzureKeyVaultPasswordRepository
     Write-Host -Object '5. Delete Key Vault Password Repository profile' -ForegroundColor Yellow
     Write-Host -Object '6. Grant Key Vault Access' -ForegroundColor Yellow
     Write-Host -Object '7. Remove Key Vault Access' -ForegroundColor Yellow
+    Write-Host -Object '8. Exit' -ForegroundColor DarkGray
   
     Do 
     {
-      [int]$option = Read-Host -Prompt 'Enter selection (0 - 7)'
+      [int]$option = Read-Host -Prompt 'Enter selection (1 - 8)'
     }
-    while ($option -lt 0 -or $option -gt 7)
+    while ($option -le 0 -or $option -gt 8)
     Write-Output -InputObject ''
     SWITCH ($option)
     {
@@ -782,13 +782,13 @@ Function Invoke-AzureKeyVaultPasswordRepository
         #Grant access
         Remove-KeyVaultFullAccessPolicy
       }
-      0 
+      8 
       {
         Write-Output -InputObject 'See you next time!'
       }
     }
   }
-  Until ($option -eq 0)
+  Until ($option -eq 8)
 }
 
 New-Alias -Name ipr -Value Invoke-AzureKeyVaultPasswordRepository
